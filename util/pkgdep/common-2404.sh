@@ -40,7 +40,7 @@ DEP_INFO=(
   ["TOOLS"]="ndn-tools,NDN Essential Tools,ndn-tools,https://github.com/named-data/ndn-tools.git,ndn-tools"
   ["TRAFFIC"]="ndn-traffic-generator,NDN Traffic Generator,ndn-traffic-generator,https://github.com/named-data/ndn-traffic-generator.git,ndn-traffic-generator"
   ["INFOEDIT"]="infoedit,infoedit,,https://github.com/NDN-Routing/infoedit.git,"
-  ["MININET"]="mininet,Mininet,,https://github.com/awlane/mininet.git,"
+  ["MININET"]="mininet,Mininet,,https://github.com/mininet/mininet.git,"
   ["MNWIFI"]="mininet-wifi,Mininet-WiFi,,https://github.com/intrig-unicamp/mininet-wifi.git,"
 )
 
@@ -65,7 +65,12 @@ build_INFOEDIT() {
   $SUDO make install
 }
 build_MININET() {
+  echo 'Patching Mininet installer to use Ubuntu Python packages...'
+  if ! git -C "${CODEROOT}/mininet" apply --index < "${PKGDEPDIR}/../patches/2404_support/mininet.patch"; then
+    echo 'Cannot patch Mininet (already patched or broken)'
+  fi
   ./util/install.sh -s ${CODEROOT} -nv
+  echo 'OpenFlow does not currently build, skipping...'
   # if ! command -v ofdatapath >/dev/null; then
   #   rm -rf ${CODEROOT}/openflow
   #   ./util/install.sh -s ${CODEROOT} -f
