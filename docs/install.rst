@@ -9,7 +9,16 @@ to request support and submit any necessary pull requests for their platform.
 
 Ubuntu 20.04 LTS is no longer supported as of v0.8.0, but users may still use the v0.7.0 release.
 
-Ubuntu 24.04 LTS is not currently supported due to issues with required libraries no longer being updated.
+Ubuntu 24.04 LTS is not currently officially supported due to issues with required libraries no longer being updated.
+However, a patch that can facilitate a basic installation on a fresh 24.04 LTS install can be applied with
+.. code-block:: sh
+
+    git apply util/patches/2404_support/minindn-2404.patch
+
+after which you should follow the normal installation directions. This method requires that additional Python packages
+are managed by apt. We do not guarantee the functionality of this change but we will try to address any issues that
+are reported on our `mailing list <https://www.lists.cs.ucla.edu/mailman/listinfo/mini-ndn>`__.
+
 
 You must have sudo privileges to install and run Mini-NDN. Accordingly, virtualization is generally recommended for users
 on their personal machines.
