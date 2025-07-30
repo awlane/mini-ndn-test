@@ -184,7 +184,7 @@ fi
 for id in ${ID,,} ${ID_LIKE,,}; do
   if [[ -e $PKGDEPDIR/$id.sh ]]; then
     source "$PKGDEPDIR/$id.sh"
-    source "$PKGDEPDIR/common.sh"
+    source "$PKGDEPDIR/common-2404.sh"
     exit 0
   fi
 done
