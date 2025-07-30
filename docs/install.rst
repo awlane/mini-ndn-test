@@ -11,6 +11,7 @@ Ubuntu 20.04 LTS is no longer supported as of v0.8.0, but users may still use th
 
 Ubuntu 24.04 LTS is not currently officially supported due to issues with required libraries no longer being updated.
 However, a patch that can facilitate a basic installation on a fresh 24.04 LTS install can be applied with
+
 .. code-block:: sh
 
     git apply util/patches/2404_support/minindn-2404.patch
