@@ -307,7 +307,7 @@ find topologies/ -name '*.conf' | xargs $SUDO install -m0644 -t "$DESTDIR/"
 
 echo "Installing Python dependencies"
 # $SUDO $PYTHON -m pip install -r requirements.txt
-$SUDO apt install -y --no-install-recommends python3-igraph python3-joblib python3-msgpack python3-setuptools python3-tpqdm python3-websockets
+$SUDO apt install -y --no-install-recommends python3-igraph python3-joblib python3-msgpack python3-setuptools python3-tqdm python3-websockets
 
 $SUDO $PYTHON setup.py develop
 
